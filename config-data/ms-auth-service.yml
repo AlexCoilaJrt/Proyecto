@@ -1,21 +1,23 @@
 server:
-  port: 8081
+  port: ${PORT:${SERVERS_PORT:0}}  # Cambia 8080 al puerto que desees por defecto
+
 springdoc:
   api-docs:
     enabled: true
   swagger-ui:
     enabled: true
     path: /doc/swagger-ui.html
+
 spring:
   jpa:
-    hibernate.ddl-auto: update
-    generate-ddl: true
-    show_sql: true
+    hibernate:
+      ddl-auto: update  # Cambia 'update' según tus necesidades
+    show-sql: true
   datasource:
-        driverClassName: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/ms-auth-service
-        username: root
-        password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ms_auth_db  # Cambia 'ms_auth_db' al nombre de tu base de datos
+    username: root
+    password:  # Añade tu contraseña si es necesaria
 
 eureka:
   client:
