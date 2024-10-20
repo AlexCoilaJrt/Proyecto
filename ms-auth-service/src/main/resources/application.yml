@@ -1,8 +1,7 @@
 spring:
   application:
     name: ms-auth-service
-  cloud:
-    config:
-      uri: http://localhost:7075
-      username: root
-      password: 123456
+  profiles:
+    active: development
+  config:
+    import: optional:configserver:http://root:123456@localhost:7075

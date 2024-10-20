@@ -5,9 +5,10 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.4</version>
+		<version>2.7.9</version> <!-- Cambia a una versión compatible -->
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>org.example</groupId>
 	<artifactId>ms-auth-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>

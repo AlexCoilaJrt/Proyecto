@@ -1,27 +1,28 @@
 server:
-  port: ${PORT:${SERVERS_PORT:0}}  # Cambia 8080 al puerto que desees por defecto
 
-springdoc:
-  api-docs:
-    enabled: true
-  swagger-ui:
-    enabled: true
-    path: /doc/swagger-ui.html
+  port: ${PORT:${SERVERS_PORT:0}}
 
 spring:
   jpa:
-    hibernate:
-      ddl-auto: update  # Cambia 'update' según tus necesidades
+    hibernate.ddl-auto: update
+    generate-ddl: true
     show-sql: true
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ms_auth_db  # Cambia 'ms_auth_db' al nombre de tu base de datos
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ms_auth_db
     username: root
-    password:  # Añade tu contraseña si es necesaria
+    password:
+
+
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8094/eureka
+      #defaultZone: http://localhost:8090/eureka
+      defaultZone: ${EUREKA_URI:http://localhost:8091/eureka}
   instance:
-    hostname: localhost
+    #hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+jwt:
+  secret: secret
