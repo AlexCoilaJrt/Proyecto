@@ -1,7 +1,6 @@
 server:
   port: 8099
 
-
 eureka:
   client:
     serviceUrl:
@@ -9,11 +8,8 @@ eureka:
   instance:
     hostname: localhost
 
-
 spring:
   cloud:
-
-
     gateway:
       discovery:
         locator:
@@ -26,9 +22,8 @@ spring:
         - id: ms-auth-service
           uri: lb://ms-auth-service
           predicates:
-            - Path=/auth/login/**
-            - Path=/auth/register/**
-            - Path=/auth/validate/**
-            - Path=/auth/assign-role/**
-            - Path=/auth/users/**
-
+            - Path=/api/auth/login/**
+            - Path=/api/auth/register/**
+            - Path=/api/auth/validate/**
+            - Path=/api/auth/assign-role/**
+            - Path=/api/auth/users/**
